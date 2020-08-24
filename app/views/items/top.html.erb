@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-3">
+        <table class="table table-hover" style="border: 1px solid gray;">
+            <thead>
+                <tr><th>ジャンル検索</th></tr>
+            </thead>      
+            <tbody>
+                <% Item.categories.keys.each do |category| %>
+                    <tr><td><%= link_to category, items_path %></td></tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-7">
+        <div class="jumbotron">
+            <h1 class="display-4">ようこそ、NaganoCakeへ！</h1>
+            <p class="lead">
+                このサイトは、ケーキ販売のECサイトになります。</br>
+                会員でない方も商品の閲覧はできますが、</br>
+                購入には会員登録が必要になります。
+            </p>
+            <%= link_to "新規登録", signup_path, class: "btn btn-primary btn-lg" %>
+        </div>
+    </div>
+</div>
+<div class="recommend">
+    <h2>オススメ商品</h2>
+    <% @items.each do |item| %>
+        <div class="recommend-item">
+            <%= link_to image_tag(item.image, size: "100x100"), item_path(item), class: "recommend-link" %>
+            <%= link_to item.name, item_path(item), class: "recommend-link" %>
+            ¥<%= item.price %>
+        </div>    
+    <% end %>
+    <%= link_to "もっと見る>", items_path, class: "more" %>
+</div>

@@ -1,0 +1,8 @@
+<% 30.times do |n| %>
+item_<%= n %>:
+  name:  <%= "Item #{n}" %>
+  caption: <%= "~~~~~~~~~~~~~~~" %>
+  image: <%= "cake.jpg" %>
+  price: 100 * n
+  category: 0
+<% end %>
